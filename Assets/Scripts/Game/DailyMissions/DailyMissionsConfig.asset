@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcd15e257fb481ab15f9d03e00d741c, type: 3}
+  m_Name: DailyMissionsConfig
+  m_EditorClassIdentifier:
+  <DailyMissionsCount>k__BackingField: 3
+  <Missions>k__BackingField:
+  - <Id>k__BackingField: play_matches
+    <Description>k__BackingField: Play 3 matches
+    <CoinRewardAmount>k__BackingField: 50
+  - <Id>k__BackingField: win_matches
+    <Description>k__BackingField: Win 2 matches
+    <CoinRewardAmount>k__BackingField: 100
+  - <Id>k__BackingField: consecutive_wins
+    <Description>k__BackingField: Win 2 matches in a row
+    <CoinRewardAmount>k__BackingField: 150
+  - <Id>k__BackingField: merge_items
+    <Description>k__BackingField: Merge 50 items
+    <CoinRewardAmount>k__BackingField: 60
+  - <Id>k__BackingField: send_recipes
+    <Description>k__BackingField: Send 10 recipes
+    <CoinRewardAmount>k__BackingField: 80
+  - <Id>k__BackingField: use_boosters
+    <Description>k__BackingField: Use 5 boosters
+    <CoinRewardAmount>k__BackingField: 60
+  - <Id>k__BackingField: earn_gold
+    <Description>k__BackingField: Earn 500 gold across matches
+    <CoinRewardAmount>k__BackingField: 80
+  - <Id>k__BackingField: single_match_gold
+    <Description>k__BackingField: Earn 150 gold in a single match
+    <CoinRewardAmount>k__BackingField: 120
+  - <Id>k__BackingField: fast_recipe
+    <Description>k__BackingField: Send a recipe within the first 15 seconds of a match
+    <CoinRewardAmount>k__BackingField: 90
+  - <Id>k__BackingField: win_without_boosters
+    <Description>k__BackingField: Win a match without using boosters
+    <CoinRewardAmount>k__BackingField: 150
+  <StreakMission>k__BackingField:
+    <Id>k__BackingField: daily_streak
+    <Description>k__BackingField: Collect all daily missions
+    <CoinRewardAmount>k__BackingField: 300
