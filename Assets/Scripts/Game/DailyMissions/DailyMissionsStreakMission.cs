@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using Game.Game.Missions;
+
+namespace Game.Game.DailyMissions
+{
+    public class DailyMissionsStreakMission : MissionBase, IDisposable
+    {
+        private readonly IReadOnlyList<MissionBase> _missions;
+        private int _collectedMissionsCount = 0;
+        
+        public DailyMissionsStreakMission(IReadOnlyList<MissionBase> missions, MissionConfig config) : base(config)
+        {
+            _missions = missions;
+            foreach (var mission in _missions)
+            {
+                mission.StateUpdated += OnMissionStateUpdated;
+            }
+        }
+
+        private void OnMissionStateUpdated(MissionBase missionBase)
+        {
+            if (missionBase.State == EMissionState.Collected)
+            {
+                _collectedMissionsCount++;
+                if (_collectedMissionsCount == _missions.Count)
+                {
+                    UpdateState(EMissionState.Completed);
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            foreach (var mission in _missions)
+            {
+                mission.StateUpdated -= OnMissionStateUpdated;
+            }
+        }
+    }
+}

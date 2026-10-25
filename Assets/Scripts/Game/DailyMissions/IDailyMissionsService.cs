@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Game.Missions;
 
 namespace Game.Game.DailyMissions
 {
     public interface IDailyMissionsService
     {
-        public Mission StreakMission { get; }
-        public List<Mission> Missions { get; }
+        public event Action<MissionBase> MissionStateUpdated;
+        public MissionBase StreakMission { get; }
+        public List<MissionBase> Missions { get; }
     }
 }

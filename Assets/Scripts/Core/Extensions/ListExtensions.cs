@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Core.Helpers
+namespace Core.Extensions
 {
     //Generated with AI assistance
-    public static class ListHelpers
+    public static class ListExtensions
     {
         /// <summary>
         /// Returns up to <paramref name="count"/> distinct elements in random order. The source is not modified.
