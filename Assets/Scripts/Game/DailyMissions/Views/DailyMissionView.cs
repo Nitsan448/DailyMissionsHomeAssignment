@@ -1,4 +1,3 @@
-using Game.Missions;
 using TMPro;
 using UnityEngine;
 
@@ -9,10 +8,10 @@ namespace Game.DailyMissions.Views
         [SerializeField] private TextMeshProUGUI _descriptionText;
         [SerializeField] private TextMeshProUGUI _coinRewardAmountText;
 
-        public void Init(MissionBase mission)
+        public void Dress(DailyMissionViewDressCode dressCode)
         {
-            _descriptionText.text = mission.Config.Description;
-            _coinRewardAmountText.text = mission.Config.CoinRewardAmount.ToString();
+            _descriptionText.text = dressCode.Description;
+            _coinRewardAmountText.text = dressCode.CoinRewardAmount.ToString();
         }
     }
 }

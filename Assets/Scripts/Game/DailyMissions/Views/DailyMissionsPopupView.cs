@@ -1,27 +1,35 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-using VContainer;
+using UnityEngine.UI;
 
 namespace Game.DailyMissions.Views
 {
     public class DailyMissionsPopupView : MonoBehaviour
     {
+        public event Action OnClosePopupButtonPressed;
+        public bool IsInitialized => _missionViews.Count > 0;
+        
         [SerializeField] private DailyMissionView _missionViewPrefab;
         [SerializeField] private Transform _missionsContainer;
+        [SerializeField] private Button _closePopupButton;
+        private readonly List<DailyMissionView> _missionViews = new();
 
-        private IDailyMissionsService _dailyMissionsService;
-
-        [Inject]
-        public void Construct(IDailyMissionsService dailyMissionsService)
+        private void OnEnable()
         {
-            _dailyMissionsService = dailyMissionsService;
+            _closePopupButton.onClick.AddListener(() => OnClosePopupButtonPressed?.Invoke());
         }
 
-        private void Start()
+        public DailyMissionView CreateMissionView()
         {
-            foreach (var mission in _dailyMissionsService.Missions)
-            {
-                Instantiate(_missionViewPrefab, _missionsContainer).Init(mission);
-            }
+            var missionView = Instantiate(_missionViewPrefab, _missionsContainer);
+            _missionViews.Add(missionView);
+            return missionView;
+        }
+
+        private void OnDisable()
+        {
+            _closePopupButton.onClick.RemoveAllListeners();
         }
     }
 }
