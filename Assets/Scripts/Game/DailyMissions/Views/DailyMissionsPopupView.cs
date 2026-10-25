@@ -7,8 +7,7 @@ namespace Game.DailyMissions.Views
 {
     public class DailyMissionsPopupView : MonoBehaviour
     {
-        public event Action OnClosePopupButtonPressed;
-        public bool IsInitialized => _missionViews.Count > 0;
+        public event Action ClosePopupButtonPressed;
         
         [SerializeField] private DailyMissionView _missionViewPrefab;
         [SerializeField] private Transform _missionsContainer;
@@ -17,7 +16,12 @@ namespace Game.DailyMissions.Views
 
         private void OnEnable()
         {
-            _closePopupButton.onClick.AddListener(() => OnClosePopupButtonPressed?.Invoke());
+            _closePopupButton.onClick.AddListener(OnClosePopupButtonPressed);
+        }
+
+        private void OnClosePopupButtonPressed()
+        {
+            ClosePopupButtonPressed?.Invoke();
         }
 
         public DailyMissionView CreateMissionView()
@@ -29,7 +33,7 @@ namespace Game.DailyMissions.Views
 
         private void OnDisable()
         {
-            _closePopupButton.onClick.RemoveAllListeners();
+            _closePopupButton.onClick.RemoveListener(OnClosePopupButtonPressed);
         }
     }
 }

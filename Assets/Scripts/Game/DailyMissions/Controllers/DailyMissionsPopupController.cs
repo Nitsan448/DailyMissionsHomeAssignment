@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.DailyMissions.Views;
+using JetBrains.Annotations;
 using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
 
 namespace Game.DailyMissions.Controllers
 {
+    [UsedImplicitly]
     public class DailyMissionsPopupController : IInitializable, IDisposable
     {
         private readonly IDailyMissionsService _dailyMissionsService;
@@ -27,7 +29,16 @@ namespace Game.DailyMissions.Controllers
         public void Initialize()
         {
             _openDailyMissionsPopupButton.onClick.AddListener(OnOpenPopupButtonPressed);
-            _popupView.OnClosePopupButtonPressed += OnClosePopupButtonPressed;
+            _popupView.ClosePopupButtonPressed += OnClosePopupButtonPressed;
+        }
+
+        private void OnOpenPopupButtonPressed()
+        {
+            if (_dailyMissionControllers.Count == 0)
+            {
+                CreateMissions();
+            }
+            _popupView.gameObject.SetActive(true);
         }
         
         private void CreateMissions()
@@ -41,15 +52,6 @@ namespace Game.DailyMissions.Controllers
             }
         }
 
-        private void OnOpenPopupButtonPressed()
-        {
-            if (_dailyMissionControllers.Count == 0)
-            {
-                CreateMissions();
-            }
-            _popupView.gameObject.SetActive(true);
-        }
-
         private void OnClosePopupButtonPressed()
         {
             _popupView.gameObject.SetActive(false);
@@ -57,8 +59,8 @@ namespace Game.DailyMissions.Controllers
 
         public void Dispose()
         {
-            _popupView.OnClosePopupButtonPressed -= OnClosePopupButtonPressed;
-            _openDailyMissionsPopupButton.onClick.RemoveAllListeners();
+            _popupView.ClosePopupButtonPressed -= OnClosePopupButtonPressed;
+            _openDailyMissionsPopupButton.onClick.RemoveListener(OnOpenPopupButtonPressed);
         }
     }
 }
