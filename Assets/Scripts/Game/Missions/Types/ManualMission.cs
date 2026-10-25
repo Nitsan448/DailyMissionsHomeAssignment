@@ -1,8 +1,9 @@
 ﻿namespace Game.Game.Missions.Types
 {
-    public class MockMission : MissionBase
+    public class ManualMission : MissionBase
     {
-        public MockMission(MissionConfig config) : base(config)
+        public override MissionType MissionType => MissionType.Manual;
+        public ManualMission(MissionConfig config) : base(config)
         {
             
         }
@@ -11,5 +12,6 @@
         {
             UpdateState(EMissionState.Completed);
         }
+
     }
 }

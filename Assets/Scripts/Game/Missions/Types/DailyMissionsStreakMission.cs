@@ -5,6 +5,8 @@ namespace Game.Game.Missions.Types
 {
     public class DailyMissionsStreakMission : MissionBase, IDisposable
     {
+        public override MissionType MissionType => MissionType.DailyMissionsStreak;
+        
         private readonly IReadOnlyList<MissionBase> _missions;
         private int _collectedMissionsCount = 0;
         
@@ -36,5 +38,6 @@ namespace Game.Game.Missions.Types
                 mission.StateUpdated -= OnMissionStateUpdated;
             }
         }
+
     }
 }

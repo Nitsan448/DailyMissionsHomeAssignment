@@ -13,8 +13,8 @@ namespace Game.Game.DailyMissions
     public class DailyMissionsService : IDailyMissionsService, IInitializable, IDisposable
     {
         public event Action<MissionBase> MissionStateUpdated;
-        public MissionBase StreakMission { get; private set; }
-        public List<MissionBase> Missions { get; private set; } = new();
+        public DailyMissionsStreakMission StreakMission { get; private set; }
+        public IReadOnlyList<MissionBase> Missions { get; private set; } = Array.Empty<MissionBase>();
         
         private readonly DailyMissionsConfig _dailyMissionsConfig;
 
@@ -36,7 +36,7 @@ namespace Game.Game.DailyMissions
         private void CreateMissions()
         {
             Missions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(_dailyMissionsConfig.DailyMissionsCount, new Random())
-                .Select(config => new MissionBase(config))
+                .Select(config => new ManualMission(config))
                 .ToList();
             StreakMission = new DailyMissionsStreakMission(Missions, _dailyMissionsConfig.StreakMission);
         }
@@ -52,6 +52,7 @@ namespace Game.Game.DailyMissions
             {
                 mission.StateUpdated -= OnMissionStateUpdated;
             }
+            StreakMission.Dispose();
         }
     }
 }

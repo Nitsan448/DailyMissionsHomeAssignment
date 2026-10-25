@@ -1,16 +1,19 @@
 ﻿using System;
+using Game.Game.Missions.Types;
 using UnityEngine;
 
 namespace Game.Game.Missions
 {
-    public class MissionBase
+    public abstract class MissionBase
     {
         public event Action<MissionBase> StateUpdated;
         
         public MissionConfig Config { get; private set; }
         public EMissionState State { get; private set; } = EMissionState.InProgress;
+        
+        public abstract MissionType MissionType { get; }
 
-        public MissionBase(MissionConfig config)
+        protected MissionBase(MissionConfig config)
         {
             Config = config;
         }
