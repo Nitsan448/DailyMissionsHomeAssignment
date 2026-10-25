@@ -3,6 +3,11 @@
     public class Mission
     {
         public MissionConfig Config { get; private set; }
-        public EMissionState State { get; private set; }
+        public EMissionState State { get; private set; } = EMissionState.InProgress;
+
+        public Mission(MissionConfig config)
+        {
+            Config = config;
+        }
     }
 }

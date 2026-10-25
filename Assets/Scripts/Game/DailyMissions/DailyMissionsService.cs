@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.Helpers;
 using Game.Game.Missions;
 using UnityEngine;
 using VContainer.Unity;
+using Random = System.Random;
 
 namespace Game.Game.DailyMissions
 {
     public class DailyMissionsService : IDailyMissionsService, IInitializable
     {
         public Mission StreakMission { get; private set; }
-        public List<Mission> Missions { get; private set; }
+        public List<Mission> Missions { get; private set; } = new();
         
         private readonly DailyMissionsConfig _dailyMissionsConfig;
 
@@ -20,7 +22,11 @@ namespace Game.Game.DailyMissions
 
         public void Initialize()
         {
-            Debug.Log(string.Join(", ", _dailyMissionsConfig.Missions.Select(mission => mission.Id)));
+            StreakMission = new Mission(_dailyMissionsConfig.StreakMission);
+            Missions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(3, new Random())
+                .Select(config => new Mission(config))
+                .ToList();
+            Debug.Log(string.Join(", ", Missions.Select(mission => mission.Config.Id)));
         }
     }
 }

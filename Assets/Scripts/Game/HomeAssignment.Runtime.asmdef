@@ -3,7 +3,8 @@
     "rootNamespace": "Game",
     "references": [
         "VContainer",
-        "UniTask"
+        "UniTask",
+        "Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
