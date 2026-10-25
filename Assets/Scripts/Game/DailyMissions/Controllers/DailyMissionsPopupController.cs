@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
 using JetBrains.Annotations;
 using UnityEngine.UI;

@@ -608,6 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779042498}
   - component: {fileID: 779042497}
+  - component: {fileID: 779042499}
   m_Layer: 0
   m_Name: GameLifetimeScope
   m_TagString: Untagged
@@ -631,9 +632,6 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _dailyMissionsConfig: {fileID: 11400000, guid: 8aff906d093e1274bb0a60ad8156be9a, type: 2}
-  _dailyMissionsPopupView: {fileID: 7557882306982683861}
-  _openDailyMissionsPopupButton: {fileID: 59863925}
 --- !u!4 &779042498
 Transform:
   m_ObjectHideFlags: 0
@@ -649,6 +647,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779042499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779042496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a60b1060e2fc1408b02d37c51b424a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DailyMissions::Game.DailyMissions.DailyMissionsInstaller
+  _dailyMissionsConfig: {fileID: 11400000, guid: 8aff906d093e1274bb0a60ad8156be9a, type: 2}
+  _dailyMissionsPopupView: {fileID: 7557882306982683861}
+  _openDailyMissionsPopupButton: {fileID: 59863925}
 --- !u!1 &1120228656
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +874,18 @@ PrefabInstance:
     - target: {fileID: 1636885663957748533, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540250278413950356, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
+      propertyPath: m_Name
+      value: DailyMissionViewPreview
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806176897621558583, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
+      propertyPath: m_Name
+      value: DailyMissionViewPreview
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247292900582868759, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
+      propertyPath: m_Name
+      value: DailyMissionViewPreview
       objectReference: {fileID: 0}
     - target: {fileID: 5442089251043182758, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
       propertyPath: m_Pivot.x

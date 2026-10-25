@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Game.Missions;
 using Game.Missions.Types;
 
-namespace Game.DailyMissions
+namespace Game.DailyMissions.Service
 {
     public interface IDailyMissionsService
     {

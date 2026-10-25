@@ -2,10 +2,7 @@
     "name": "Game",
     "rootNamespace": "",
     "references": [
-        "VContainer",
-        "UniTask",
-        "Core",
-        "Unity.TextMeshPro"
+        "VContainer"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

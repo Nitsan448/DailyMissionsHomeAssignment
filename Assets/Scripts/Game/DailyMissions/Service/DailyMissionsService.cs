@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Core.Extensions;
+using Game.DailyMissions.Config;
 using Game.Missions;
 using Game.Missions.Types;
-using UnityEngine;
 using VContainer.Unity;
 using Random = System.Random;
 
-namespace Game.DailyMissions
+namespace Game.DailyMissions.Service
 {
     public class DailyMissionsService : IDailyMissionsService, IInitializable, IDisposable
     {
@@ -30,7 +30,6 @@ namespace Game.DailyMissions
             {
                 mission.StateUpdated += OnMissionStateUpdated;
             }
-            Debug.Log(string.Join(", ", Missions.Select(mission => mission.Config.Id)));
         }
 
         private void CreateMissions()
