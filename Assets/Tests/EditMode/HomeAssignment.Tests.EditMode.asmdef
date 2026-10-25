@@ -2,7 +2,8 @@
     "name": "HomeAssignment.Tests.EditMode",
     "rootNamespace": "HomeAssignment.Tests.EditMode",
     "references": [
-        "HomeAssignment.Runtime",
+        "Game",
+        "Core",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],
