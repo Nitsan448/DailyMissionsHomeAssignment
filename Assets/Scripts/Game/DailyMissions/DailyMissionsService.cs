@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Extensions;
 using Game.Game.Missions;
+using Game.Game.Missions.Types;
 using UnityEngine;
 using VContainer.Unity;
 using Random = System.Random;

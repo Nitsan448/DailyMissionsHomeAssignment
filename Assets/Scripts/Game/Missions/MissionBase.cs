@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Game.Game.Missions
 {
@@ -14,7 +15,18 @@ namespace Game.Game.Missions
             Config = config;
         }
 
-        public void UpdateState(EMissionState newState)
+        public void Collect()
+        {
+            if (State != EMissionState.Completed)
+            {
+                Debug.LogWarning("Tried to collect an uncompleted mission");
+                return;
+            }
+            
+            UpdateState(EMissionState.Collected);
+        }
+
+        protected void UpdateState(EMissionState newState)
         {
             State = newState;
             StateUpdated?.Invoke(this);

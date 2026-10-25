@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Game.Missions;
 
-namespace Game.Game.DailyMissions
+namespace Game.Game.Missions.Types
 {
     public class DailyMissionsStreakMission : MissionBase, IDisposable
     {
