@@ -1,6 +1,6 @@
 {
-    "name": "HomeAssignment.Runtime",
-    "rootNamespace": "HomeAssignment",
+    "name": "Game",
+    "rootNamespace": "Game",
     "references": [
         "VContainer",
         "UniTask"
