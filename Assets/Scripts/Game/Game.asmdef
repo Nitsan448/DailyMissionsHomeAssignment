@@ -1,6 +1,6 @@
 {
     "name": "Game",
-    "rootNamespace": "Game",
+    "rootNamespace": "",
     "references": [
         "VContainer",
         "UniTask",

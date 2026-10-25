@@ -1,9 +1,9 @@
 using UnityEngine;
 using VContainer;
 
-namespace Game.Game.DailyMissions.UI
+namespace Game.DailyMissions.Views
 {
-    public class DailyMissionsPopup : MonoBehaviour
+    public class DailyMissionsPopupView : MonoBehaviour
     {
         [SerializeField] private DailyMissionView _missionViewPrefab;
         [SerializeField] private Transform _missionsContainer;

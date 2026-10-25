@@ -1,8 +1,8 @@
-using Game.Game.Missions;
+using Game.Missions;
 using TMPro;
 using UnityEngine;
 
-namespace Game.Game.DailyMissions.UI
+namespace Game.DailyMissions.Views
 {
     public class DailyMissionView : MonoBehaviour
     {

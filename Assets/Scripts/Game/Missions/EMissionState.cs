@@ -1,4 +1,4 @@
-﻿namespace Game.Game.Missions
+﻿namespace Game.Missions
 {
     public enum EMissionState
     {

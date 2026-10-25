@@ -1,7 +1,7 @@
-﻿using Game.Game.Missions;
+﻿using Game.Missions;
 using UnityEngine;
 
-namespace Game.Game.DailyMissions
+namespace Game.DailyMissions
 {
     [CreateAssetMenu(fileName = "DailyMissionsConfig", menuName = "ScriptableObjects/DailyMissions")]
     public class DailyMissionsConfig : ScriptableObject

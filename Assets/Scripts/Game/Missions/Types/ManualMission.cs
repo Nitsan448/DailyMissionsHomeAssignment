@@ -1,4 +1,4 @@
-﻿namespace Game.Game.Missions.Types
+﻿namespace Game.Missions.Types
 {
     public class ManualMission : MissionBase
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using Game.Game.Missions.Types;
+using Game.Missions.Types;
 using UnityEngine;
 
-namespace Game.Game.Missions
+namespace Game.Missions
 {
     [Serializable]
     public class MissionConfig

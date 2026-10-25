@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Game.Missions;
-using Game.Game.Missions.Types;
+using Game.Missions;
+using Game.Missions.Types;
 
-namespace Game.Game.DailyMissions
+namespace Game.DailyMissions
 {
     public interface IDailyMissionsService
     {
