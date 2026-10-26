@@ -1,3 +1,4 @@
+using System;
 using Game.DailyMissions.Config;
 using Game.Missions;
 using TMPro;
@@ -8,12 +9,25 @@ namespace Game.DailyMissions.Views
 {
     public class DailyMissionView : MonoBehaviour
     {
+        public event Action Clicked;
+
+        [SerializeField] private Button _button;
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private TextMeshProUGUI _descriptionText;
         [SerializeField] private TextMeshProUGUI _coinRewardAmountText;
         [SerializeField] private GameObject _reward;
         [SerializeField] private GameObject _collectedIcon;
         [SerializeField] private DailyMissionViewStatesConfig _statesConfig;
+
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnButtonClicked);
+        }
+
+        private void OnButtonClicked()
+        {
+            Clicked?.Invoke();
+        }
 
         public void Dress(DailyMissionViewDressCode dressCode)
         {
@@ -30,6 +44,11 @@ namespace Game.DailyMissions.Views
             _backgroundImage.color = stateConfig.BackgroundColor;
             _reward.SetActive(stateConfig.ShouldShowReward);
             _collectedIcon.SetActive(stateConfig.ShouldShowCollectedIcon);
+        }
+
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnButtonClicked);
         }
     }
 }

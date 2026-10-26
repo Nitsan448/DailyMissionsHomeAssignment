@@ -18,6 +18,7 @@ namespace Game.DailyMissions.Controllers
         public void Initialize()
         {
             _mission.StateUpdated += OnMissionStateUpdated;
+            _view.Clicked += OnViewClicked;
             var dressCode = new DailyMissionViewDressCode()
             {
                 Description = _mission.Config.Description,
@@ -32,9 +33,18 @@ namespace Game.DailyMissions.Controllers
             _view.DressState(mission.State);
         }
 
+        private void OnViewClicked()
+        {
+            if (_mission.State == EMissionState.Completed)
+            {
+                _mission.Collect();
+            }
+        }
+
         public void Dispose()
         {
             _mission.StateUpdated -= OnMissionStateUpdated;
+            _view.Clicked -= OnViewClicked;
         }
     }
 }
