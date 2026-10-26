@@ -22,7 +22,7 @@ namespace Game.DailyMissions.Views
             DressState(dressCode.State);
         }
 
-        private void DressState(EMissionState state)
+        public void DressState(EMissionState state)
         {
             var stateConfig = _statesConfig.StateConfigs[state];
             _descriptionText.color = stateConfig.TextColor;

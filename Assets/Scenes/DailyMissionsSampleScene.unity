@@ -1222,6 +1222,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyMissionViewPreview
       objectReference: {fileID: 0}
+    - target: {fileID: 2900924269441547609, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
+      propertyPath: m_Spacing
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900924269441547609, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5247292900582868759, guid: 405939c2fac00374fa27473a51cb72b4, type: 3}
       propertyPath: m_Name
       value: DailyMissionViewPreview

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
-using Game.Missions;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using VContainer;
@@ -63,8 +61,17 @@ namespace Game.DailyMissions.Controllers
 
         private void OnMissionsReset()
         {
-            _dailyMissionControllers.Clear();
+            DisposeMissionControllers();
             _popupView.DestroyMissionViews();
+        }
+
+        private void DisposeMissionControllers()
+        {
+            foreach (var dailyMissionController in _dailyMissionControllers)
+            {
+                dailyMissionController.Dispose();
+            }
+            _dailyMissionControllers.Clear();
         }
 
         public void Dispose()
@@ -72,6 +79,7 @@ namespace Game.DailyMissions.Controllers
             _openDailyMissionsPopupButton.onClick.RemoveListener(OnOpenPopupButtonPressed);
             _popupView.ClosePopupButtonPressed -= OnClosePopupButtonPressed;
             _dailyMissionsService.MissionsReset -= OnMissionsReset;
+            DisposeMissionControllers();
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using Game.DailyMissions.Views;
+﻿using System;
+using Game.DailyMissions.Views;
 using Game.Missions;
 
 namespace Game.DailyMissions.Controllers
 {
-    public class DailyMissionController
+    public class DailyMissionController : IDisposable
     {
         private readonly DailyMissionView _view;
         private readonly MissionBase _mission;
@@ -16,6 +17,7 @@ namespace Game.DailyMissions.Controllers
 
         public void Initialize()
         {
+            _mission.StateUpdated += OnMissionStateUpdated;
             var dressCode = new DailyMissionViewDressCode()
             {
                 Description = _mission.Config.Description,
@@ -23,6 +25,16 @@ namespace Game.DailyMissions.Controllers
                 State =  _mission.State,
             };
             _view.Dress(dressCode);
+        }
+
+        private void OnMissionStateUpdated(MissionBase mission)
+        {
+            _view.DressState(mission.State);
+        }
+
+        public void Dispose()
+        {
+            _mission.StateUpdated -= OnMissionStateUpdated;
         }
     }
 }
