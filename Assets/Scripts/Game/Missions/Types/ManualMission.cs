@@ -10,7 +10,10 @@
 
         public void Complete()
         {
-            UpdateState(EMissionState.Completed);
+            if (State == EMissionState.InProgress)
+            {
+                UpdateState(EMissionState.Completed);
+            }
         }
 
     }
