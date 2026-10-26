@@ -46,10 +46,7 @@ namespace Game.DailyMissions.Controllers
         
         private void CreateMissions()
         {
-            var sortedMissions = _dailyMissionsService.Missions.OrderBy(mission => mission.State == EMissionState.Completed)
-                .ThenBy(mission => mission.State == EMissionState.InProgress)
-                .ToList();
-            foreach (var mission in sortedMissions)
+            foreach (var mission in _dailyMissionsService.Missions)
             {
                 var dailyMissionView = _popupView.CreateMissionView();
                 var dailyMissionController = new DailyMissionController(dailyMissionView, mission);

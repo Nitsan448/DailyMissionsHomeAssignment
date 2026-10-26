@@ -31,6 +31,11 @@ namespace Game.Missions
 
         protected void UpdateState(EMissionState newState)
         {
+            if (State == newState)
+            {
+                return;
+            }
+            
             State = newState;
             StateUpdated?.Invoke(this);
         }
