@@ -14,14 +14,17 @@ namespace Game.DailyMissions
         [SerializeField] private DailyMissionsConfig _dailyMissionsConfig;
         [SerializeField] private DailyMissionsPopupView _dailyMissionsPopupView;
         [SerializeField] private Button _openDailyMissionsPopupButton;
+        [SerializeField] private DailyMissionsMainScreenView _dailyMissionsMainScreenView;
 
         public void Install(IContainerBuilder builder)
         {
             builder.RegisterInstance(_dailyMissionsConfig);
             builder.RegisterComponent(_dailyMissionsPopupView);
             builder.RegisterComponent(_openDailyMissionsPopupButton).Keyed(Ids.Buttons.OPEN_DAILY_MISSIONS_POPUP);
+            builder.RegisterComponent(_dailyMissionsMainScreenView);
             builder.RegisterEntryPoint<DailyMissionsService>();
             builder.RegisterEntryPoint<DailyMissionsPopupController>();
+            builder.RegisterEntryPoint<DailyMissionsMainScreenController>();
         }
     }
 }
