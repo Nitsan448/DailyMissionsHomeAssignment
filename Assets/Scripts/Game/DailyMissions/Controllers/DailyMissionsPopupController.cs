@@ -69,9 +69,9 @@ namespace Game.DailyMissions.Controllers
 
         public void Dispose()
         {
-            _dailyMissionsService.MissionsReset -= OnMissionsReset;
-            _popupView.ClosePopupButtonPressed -= OnClosePopupButtonPressed;
             _openDailyMissionsPopupButton.onClick.RemoveListener(OnOpenPopupButtonPressed);
+            _popupView.ClosePopupButtonPressed -= OnClosePopupButtonPressed;
+            _dailyMissionsService.MissionsReset -= OnMissionsReset;
         }
     }
 }

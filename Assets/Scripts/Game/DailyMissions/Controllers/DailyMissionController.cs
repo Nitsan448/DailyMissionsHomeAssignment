@@ -19,7 +19,8 @@ namespace Game.DailyMissions.Controllers
             var dressCode = new DailyMissionViewDressCode()
             {
                 Description = _mission.Config.Description,
-                CoinRewardAmount = _mission.Config.CoinRewardAmount
+                CoinRewardAmount = _mission.Config.CoinRewardAmount,
+                State =  _mission.State,
             };
             _view.Dress(dressCode);
         }
