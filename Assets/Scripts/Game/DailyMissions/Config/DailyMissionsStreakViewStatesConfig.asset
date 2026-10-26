@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16befb18a4d24690b1fc5fe70d5b904d, type: 3}
+  m_Name: DailyMissionsStreakViewStatesConfig
+  m_EditorClassIdentifier: DailyMissions::Game.DailyMissions.Config.DailyMissionViewStatesConfig
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: StateConfigs
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Game.Missions.EMissionState,
+        Missions],[Game.DailyMissions.Config.DailyMissionViewStateConfig, DailyMissions]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Game.Missions.EMissionState,
+        Missions]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|Game.DailyMissions.Config.DailyMissionViewStateConfig, DailyMissions
+    - Name: BackgroundColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.23137255
+    - Name: 
+      Entry: 4
+      Data: 0.180392161
+    - Name: 
+      Entry: 4
+      Data: 0.3529412
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TextColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.9019608
+    - Name: 
+      Entry: 4
+      Data: 0.8666667
+    - Name: 
+      Entry: 4
+      Data: 0.968627453
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ShouldShowReward
+      Entry: 5
+      Data: true
+    - Name: ShouldShowCollectedIcon
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|Game.DailyMissions.Config.DailyMissionViewStateConfig, DailyMissions
+    - Name: BackgroundColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.482352942
+    - Name: 
+      Entry: 4
+      Data: 0.309803933
+    - Name: 
+      Entry: 4
+      Data: 0.8392157
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TextColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ShouldShowReward
+      Entry: 5
+      Data: true
+    - Name: ShouldShowCollectedIcon
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|Game.DailyMissions.Config.DailyMissionViewStateConfig, DailyMissions
+    - Name: BackgroundColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.164705887
+    - Name: 
+      Entry: 4
+      Data: 0.149019614
+    - Name: 
+      Entry: 4
+      Data: 0.219607845
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TextColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.5411765
+    - Name: 
+      Entry: 4
+      Data: 0.5176471
+    - Name: 
+      Entry: 4
+      Data: 0.627451
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ShouldShowReward
+      Entry: 5
+      Data: false
+    - Name: ShouldShowCollectedIcon
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

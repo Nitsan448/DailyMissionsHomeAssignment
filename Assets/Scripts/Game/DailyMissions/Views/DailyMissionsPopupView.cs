@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.Missions.Types;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +10,8 @@ namespace Game.DailyMissions.Views
     {
         public event Action ClosePopupButtonPressed;
         
-        [SerializeField] private DailyMissionView _missionViewPrefab;
-        [SerializeField] private Transform _missionsContainer;
+        [SerializeField] private DailyMissionViewSlot _missionViewSlot;
+        [SerializeField] private DailyMissionViewSlot _streakMissionViewSlot;
         [SerializeField] private Button _closePopupButton;
         private readonly List<DailyMissionView> _missionViews = new();
 
@@ -24,9 +25,10 @@ namespace Game.DailyMissions.Views
             ClosePopupButtonPressed?.Invoke();
         }
 
-        public DailyMissionView CreateMissionView()
+        public DailyMissionView CreateMissionView(MissionType missionType)
         {
-            var missionView = Instantiate(_missionViewPrefab, _missionsContainer);
+            var slot = missionType is MissionType.DailyMissionsStreak ? _streakMissionViewSlot : _missionViewSlot;
+            var missionView = Instantiate(slot.Prefab, slot.Container);
             _missionViews.Add(missionView);
             return missionView;
         }

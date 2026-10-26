@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcd15e257fb481ab15f9d03e00d741c, type: 3}
   m_Name: DailyMissionsConfig
   m_EditorClassIdentifier: 
-  <DailyMissionsCount>k__BackingField: 4
+  <DailyMissionsCount>k__BackingField: 3
   <Missions>k__BackingField:
   - <Id>k__BackingField: play_matches
     <Type>k__BackingField: 0

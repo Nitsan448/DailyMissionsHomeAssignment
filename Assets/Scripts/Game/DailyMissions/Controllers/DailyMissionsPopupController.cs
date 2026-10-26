@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
+using Game.Missions;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using VContainer;
@@ -47,11 +48,17 @@ namespace Game.DailyMissions.Controllers
         {
             foreach (var mission in _dailyMissionsService.Missions)
             {
-                var dailyMissionView = _popupView.CreateMissionView();
-                var dailyMissionController = new DailyMissionController(dailyMissionView, mission);
-                _dailyMissionControllers.Add(dailyMissionController);
-                dailyMissionController.Initialize();
+                CreateMissionController(mission);
             }
+            CreateMissionController(_dailyMissionsService.StreakMission);
+        }
+
+        private void CreateMissionController(MissionBase mission)
+        {
+            var missionView = _popupView.CreateMissionView(mission.MissionType);
+            var dailyMissionController = new DailyMissionController(missionView, mission);
+            _dailyMissionControllers.Add(dailyMissionController);
+            dailyMissionController.Initialize();
         }
 
         private void OnClosePopupButtonPressed()
