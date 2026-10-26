@@ -52,5 +52,10 @@ namespace Game.DailyMissions.Views
             }
             _completeMissionButtons.Clear();
         }
+
+        private void OnDisable()
+        {
+            _resetMissionsButton.onClick.RemoveListener(OnResetMissionsButtonClicked);
+        }
     }
 }
