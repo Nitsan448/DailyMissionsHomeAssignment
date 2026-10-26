@@ -31,6 +31,15 @@ namespace Game.DailyMissions.Views
             return missionView;
         }
 
+        public void DestroyMissionViews()
+        {
+            foreach (var missionView in _missionViews)
+            {
+                Destroy(missionView.gameObject);
+            }
+            _missionViews.Clear();
+        }
+
         private void OnDisable()
         {
             _closePopupButton.onClick.RemoveListener(OnClosePopupButtonPressed);

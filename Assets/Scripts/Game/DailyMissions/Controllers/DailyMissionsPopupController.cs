@@ -33,6 +33,7 @@ namespace Game.DailyMissions.Controllers
         {
             _openDailyMissionsPopupButton.onClick.AddListener(OnOpenPopupButtonPressed);
             _popupView.ClosePopupButtonPressed += OnClosePopupButtonPressed;
+            _dailyMissionsService.MissionsReset += OnMissionsReset;
         }
 
         private void OnOpenPopupButtonPressed()
@@ -60,8 +61,15 @@ namespace Game.DailyMissions.Controllers
             _popupView.gameObject.SetActive(false);
         }
 
+        private void OnMissionsReset()
+        {
+            _dailyMissionControllers.Clear();
+            _popupView.DestroyMissionViews();
+        }
+
         public void Dispose()
         {
+            _dailyMissionsService.MissionsReset -= OnMissionsReset;
             _popupView.ClosePopupButtonPressed -= OnClosePopupButtonPressed;
             _openDailyMissionsPopupButton.onClick.RemoveListener(OnOpenPopupButtonPressed);
         }
