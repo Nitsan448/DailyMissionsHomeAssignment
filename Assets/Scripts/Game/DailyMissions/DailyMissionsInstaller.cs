@@ -18,9 +18,9 @@ namespace Game.DailyMissions
         public void Install(IContainerBuilder builder)
         {
             builder.RegisterInstance(_dailyMissionsConfig);
-            builder.RegisterEntryPoint<DailyMissionsService>();
             builder.RegisterComponent(_dailyMissionsPopupView);
             builder.RegisterComponent(_openDailyMissionsPopupButton).Keyed(Ids.Buttons.OPEN_DAILY_MISSIONS_POPUP);
+            builder.RegisterEntryPoint<DailyMissionsService>();
             builder.RegisterEntryPoint<DailyMissionsPopupController>();
         }
     }

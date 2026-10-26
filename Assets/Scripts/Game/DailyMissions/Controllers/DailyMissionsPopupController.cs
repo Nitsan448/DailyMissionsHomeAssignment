@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
+using Game.Missions;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using VContainer;
@@ -44,7 +46,10 @@ namespace Game.DailyMissions.Controllers
         
         private void CreateMissions()
         {
-            foreach (var mission in _dailyMissionsService.Missions)
+            var sortedMissions = _dailyMissionsService.Missions.OrderBy(mission => mission.State == EMissionState.Completed)
+                .ThenBy(mission => mission.State == EMissionState.InProgress)
+                .ToList();
+            foreach (var mission in sortedMissions)
             {
                 var dailyMissionView = _popupView.CreateMissionView();
                 var dailyMissionController = new DailyMissionController(dailyMissionView, mission);

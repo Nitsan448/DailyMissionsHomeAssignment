@@ -1,4 +1,7 @@
-﻿using Game.Missions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Game.Missions;
 using UnityEngine;
 
 namespace Game.DailyMissions.Config
@@ -9,5 +12,13 @@ namespace Game.DailyMissions.Config
         [field:SerializeField][field:Range(0, 7)] public int DailyMissionsCount { get; private set; }
         [field:SerializeField] public MissionConfig[] Missions { get; private set; }
         [field:SerializeField] public MissionConfig StreakMission { get; private set; }
+
+        private void OnValidate()
+        {
+            if (DailyMissionsCount > Missions.Length)
+            {
+                Debug.LogWarning($"Daily missions count ({DailyMissionsCount}) is larger than the number of missions in the pool ({Missions.Length})", this);
+            }
+        }
     }
 }
