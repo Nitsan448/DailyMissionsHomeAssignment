@@ -662,6 +662,7 @@ MonoBehaviour:
   _dailyMissionsConfig: {fileID: 11400000, guid: 8aff906d093e1274bb0a60ad8156be9a, type: 2}
   _dailyMissionsPopupView: {fileID: 7557882306982683861}
   _openDailyMissionsPopupButton: {fileID: 59863925}
+  _dailyMissionsMainScreenView: {fileID: 1120228661}
 --- !u!1 &1120228656
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +675,7 @@ GameObject:
   - component: {fileID: 1120228659}
   - component: {fileID: 1120228658}
   - component: {fileID: 1120228657}
+  - component: {fileID: 1120228661}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -767,6 +769,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1120228661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120228656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6566ee08c4e7480f9fbd450a418f7a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DailyMissions::Game.DailyMissions.Views.DailyMissionsMainScreenView
+  _resetMissionsButton: {fileID: 1429712648}
+  _completeMissionButtonPrefab: {fileID: 6860609057394540335, guid: 074e720efead37240bb0003f693211da, type: 3}
+  _completeMissionButtonsContainer: {fileID: 1501536590}
 --- !u!1 &1429712646
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1501536590}
+  - component: {fileID: 1501536591}
   m_Layer: 0
   m_Name: CompleteMissionButtons
   m_TagString: Untagged
@@ -920,9 +938,35 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 400, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1501536591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501536589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1678413717
 GameObject:
   m_ObjectHideFlags: 0
