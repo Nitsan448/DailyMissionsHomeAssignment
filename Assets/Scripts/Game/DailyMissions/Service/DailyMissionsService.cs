@@ -19,10 +19,12 @@ namespace Game.DailyMissions.Service
         public IReadOnlyList<TypedMissionBase> Missions { get; private set; } = Array.Empty<TypedMissionBase>();
         
         private readonly DailyMissionsConfig _dailyMissionsConfig;
+        private readonly TypedMissionsFactory _missionsFactory;
 
-        public DailyMissionsService(DailyMissionsConfig config)
+        public DailyMissionsService(DailyMissionsConfig config, TypedMissionsFactory missionsFactory)
         {
             _dailyMissionsConfig = config;
+            _missionsFactory = missionsFactory;
         }
 
         public void Initialize()
@@ -38,7 +40,7 @@ namespace Game.DailyMissions.Service
         private void CreateMissions()
         {
             Missions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(_dailyMissionsConfig.DailyMissionsCount, new Random())
-                .Select(config => new ManualMission(config))
+                .Select(_missionsFactory.Create)
                 .ToList();
             Streak = new DailyMissionsStreak(Missions, _dailyMissionsConfig.StreakMission);
         }

@@ -2,6 +2,7 @@ using Game.DailyMissions.Config;
 using Game.DailyMissions.Controllers;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
+using Game.Missions.Typed;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -21,9 +22,12 @@ namespace Game.DailyMissions
             builder.RegisterInstance(_dailyMissionsConfig);
             builder.RegisterComponent(_dailyMissionsPopupView);
             builder.RegisterComponent(_dailyMissionsMainScreenView);
+            
             builder.RegisterEntryPoint<DailyMissionsService>();
             builder.RegisterEntryPoint<DailyMissionsPopupController>();
             builder.RegisterEntryPoint<DailyMissionsMainScreenController>();
+            
+            builder.Register<TypedMissionsFactory>(Lifetime.Singleton);
         }
     }
 }
