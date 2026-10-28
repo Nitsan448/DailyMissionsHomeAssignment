@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcd15e257fb481ab15f9d03e00d741c, type: 3}
   m_Name: DailyMissionsConfig
   m_EditorClassIdentifier: 
-  <DailyMissionsCount>k__BackingField: 3
   <AlwaysIncludedMissions>k__BackingField:
   - <Id>k__BackingField: daily_streak
     <Description>k__BackingField: Collect all daily missions
     <CoinRewardAmount>k__BackingField: 300
     <Type>k__BackingField: 2
-  <Missions>k__BackingField:
+  <RandomizedDailyMissionsCount>k__BackingField: 3
+  <MissionsPool>k__BackingField:
   - <Id>k__BackingField: play_matches
     <Description>k__BackingField: Play 3 matches
     <CoinRewardAmount>k__BackingField: 50

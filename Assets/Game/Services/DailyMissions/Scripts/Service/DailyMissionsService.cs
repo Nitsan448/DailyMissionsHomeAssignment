@@ -51,7 +51,7 @@ namespace Game.Services.DailyMissions.Scripts.Service
 
         private void CreateMissions()
         {
-            var randomMissions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(_dailyMissionsConfig.DailyMissionsCount, new Random());
+            var randomMissions = _dailyMissionsConfig.MissionsPool.GetRandomUniqueElements(_dailyMissionsConfig.RandomizedDailyMissionsCount, new Random());
             var missionConfigs = _dailyMissionsConfig.AlwaysIncludedMissions.Concat(randomMissions);
             Missions = missionConfigs.Select(_missionsFactory.Create).ToList();
         }
