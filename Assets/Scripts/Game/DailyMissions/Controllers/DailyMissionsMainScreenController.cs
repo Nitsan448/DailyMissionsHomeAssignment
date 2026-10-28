@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
 using Game.Missions.Implementations;
@@ -8,10 +10,11 @@ using VContainer.Unity;
 namespace Game.DailyMissions.Controllers
 {
     [UsedImplicitly]
-    public class DailyMissionsMainScreenController : IInitializable, IDisposable
+    public class DailyMissionsMainScreenController : IStartable, IDisposable
     {
         private readonly IDailyMissionsService _dailyMissionsService;
         private readonly DailyMissionsMainScreenView _mainScreenView;
+        private IReadOnlyList<ManualMission> _manualMissions;
 
         public DailyMissionsMainScreenController(IDailyMissionsService dailyMissionsService, DailyMissionsMainScreenView mainScreenView)
         {
@@ -19,7 +22,7 @@ namespace Game.DailyMissions.Controllers
             _mainScreenView = mainScreenView;
         }
 
-        public void Initialize()
+        public void Start()
         {
             _mainScreenView.ResetMissionsButtonPressed += OnResetMissionsButtonPressed;
             _mainScreenView.CompleteMissionButtonPressed += OnCompleteMissionButtonPressed;
@@ -34,10 +37,7 @@ namespace Game.DailyMissions.Controllers
 
         private void OnCompleteMissionButtonPressed(int missionIndex)
         {
-            if (_dailyMissionsService.Missions[missionIndex] is ManualMission manualMission)
-            {
-                manualMission.Complete();
-            }
+            _manualMissions[missionIndex].Complete();
         }
 
         private void OnMissionsReset()
@@ -47,7 +47,8 @@ namespace Game.DailyMissions.Controllers
 
         private void InitializeCompleteMissionButtons()
         {
-            _mainScreenView.InitializeCompleteMissionButtons(_dailyMissionsService.Missions.Count);
+            _manualMissions = _dailyMissionsService.Missions.OfType<ManualMission>().ToList();
+            _mainScreenView.InitializeCompleteMissionButtons(_manualMissions.Count);
         }
 
         public void Dispose()

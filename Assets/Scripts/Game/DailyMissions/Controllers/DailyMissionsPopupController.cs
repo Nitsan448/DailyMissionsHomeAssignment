@@ -9,7 +9,7 @@ using VContainer.Unity;
 namespace Game.DailyMissions.Controllers
 {
     [UsedImplicitly]
-    public class DailyMissionsPopupController : IInitializable, IDisposable
+    public class DailyMissionsPopupController : IStartable, IDisposable
     {
         private readonly IDailyMissionsService _dailyMissionsService;
         private readonly DailyMissionsPopupView _popupView;
@@ -26,7 +26,7 @@ namespace Game.DailyMissions.Controllers
             _dailyMissionsMainScreenView = dailyMissionsMainScreenView;
         }
 
-        public void Initialize()
+        public void Start()
         {
             _dailyMissionsMainScreenView.OpenPopupButtonPressed += OnOpenPopupButtonPressed;
             _popupView.ClosePopupButtonPressed += OnClosePopupButtonPressed;
@@ -46,19 +46,11 @@ namespace Game.DailyMissions.Controllers
         {
             foreach (var mission in _dailyMissionsService.Missions)
             {
-                var missionView = _popupView.CreateMissionView();
-                CreateMissionController(mission, missionView);
+                var missionView = _popupView.CreateMissionView(mission.Config.Type);
+                var missionController = new DailyMissionController(missionView, mission);
+                _dailyMissionControllers.Add(missionController);
+                missionController.Initialize();
             }
-
-            var streakView = _popupView.CreateStreakView();
-            CreateMissionController(_dailyMissionsService.StreakMission, streakView);
-        }
-
-        private void CreateMissionController(MissionBase mission, DailyMissionView missionView)
-        {
-            var dailyMissionController = new DailyMissionController(missionView, mission);
-            _dailyMissionControllers.Add(dailyMissionController);
-            dailyMissionController.Initialize();
         }
 
         private void OnClosePopupButtonPressed()
@@ -70,6 +62,10 @@ namespace Game.DailyMissions.Controllers
         {
             DisposeMissionControllers();
             _popupView.DestroyMissionViews();
+            if (_popupView.gameObject.activeSelf)
+            {
+                CreateMissions();
+            }
         }
 
         private void DisposeMissionControllers()

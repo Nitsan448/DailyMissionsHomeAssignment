@@ -8,8 +8,8 @@ namespace Game.DailyMissions.Config
     public class DailyMissionsConfig : ScriptableObject
     {
         [field:SerializeField][field:Range(1, 7)] public int DailyMissionsCount { get; private set; }
+        [field:SerializeField] public MissionConfig[] AlwaysIncludedMissions { get; private set; }
         [field:SerializeField] public MissionConfig[] Missions { get; private set; }
-        [field:SerializeField] public MissionConfig StreakMission { get; private set; }
 
         private void OnValidate()
         {

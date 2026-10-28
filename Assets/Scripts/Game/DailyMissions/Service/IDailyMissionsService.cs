@@ -7,7 +7,7 @@ namespace Game.DailyMissions.Service
     public interface IDailyMissionsService
     {
         event Action MissionsReset;
-        MissionBase StreakMission { get; }
+        event Action<MissionBase> MissionStateUpdated;
         IReadOnlyList<MissionBase> Missions { get; }
         void ResetMissions();
     }

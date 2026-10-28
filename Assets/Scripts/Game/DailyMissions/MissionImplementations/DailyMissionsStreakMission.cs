@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using Game.DailyMissions.Service;
 using Game.Missions;
 using Game.Missions.Base;
 using Game.Missions.Config;
@@ -7,37 +8,30 @@ namespace Game.DailyMissions.MissionImplementations
 {
     public class DailyMissionsStreakMission : MissionBase
     {
-        private readonly IReadOnlyList<MissionBase> _missions;
-        private int _collectedMissionsCount = 0;
+        private readonly IDailyMissionsService _dailyMissionsService;
 
-        public DailyMissionsStreakMission(IReadOnlyList<MissionBase> missions, MissionConfig config) : base(config)
+        public DailyMissionsStreakMission(MissionConfig config, IDailyMissionsService dailyMissionsService) : base(config)
         {
-            _missions = missions;
-            foreach (var mission in _missions)
-            {
-                mission.StateUpdated += OnMissionStateUpdated;
-            }
+            _dailyMissionsService = dailyMissionsService;
+            _dailyMissionsService.MissionStateUpdated += OnMissionStateUpdated;
         }
 
         private void OnMissionStateUpdated(MissionBase mission)
         {
-            if (mission.State == EMissionState.Collected)
+            if (State != EMissionState.InProgress)
             {
-                _collectedMissionsCount++;
-                if (_collectedMissionsCount == _missions.Count)
-                {
-                    UpdateState(EMissionState.Completed);
-                }
+                return;
+            }
+            if (_dailyMissionsService.Missions.Where(m => m is not DailyMissionsStreakMission) 
+                .All(m => m.State == EMissionState.Collected))
+            {
+                UpdateState(EMissionState.Completed);
             }
         }
 
         public override void Dispose()
         {
-            foreach (var mission in _missions)
-            {
-                mission.StateUpdated -= OnMissionStateUpdated;
-            }
+            _dailyMissionsService.MissionStateUpdated -= OnMissionStateUpdated;
         }
-
     }
 }

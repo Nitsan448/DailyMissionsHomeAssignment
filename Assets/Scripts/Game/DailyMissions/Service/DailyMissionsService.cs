@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Extensions;
 using Game.DailyMissions.Config;
-using Game.DailyMissions.MissionImplementations;
 using Game.Missions;
 using Game.Missions.Base;
 using JetBrains.Annotations;
@@ -16,7 +15,7 @@ namespace Game.DailyMissions.Service
     public class DailyMissionsService : IDailyMissionsService, IInitializable, IDisposable
     {
         public event Action MissionsReset;
-        public MissionBase StreakMission { get; private set; }
+        public event Action<MissionBase> MissionStateUpdated;
         public IReadOnlyList<MissionBase> Missions { get; private set; } = Array.Empty<MissionBase>();
         
         private readonly DailyMissionsConfig _dailyMissionsConfig;
@@ -36,14 +35,22 @@ namespace Game.DailyMissions.Service
         private void InitializeMissions()
         {
             CreateMissions();
+            foreach (var mission in Missions)
+            {
+                mission.StateUpdated += OnMissionStateUpdated;
+            }
         }
 
         private void CreateMissions()
         {
-            Missions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(_dailyMissionsConfig.DailyMissionsCount, new Random())
-                .Select(_missionsFactory.Create)
-                .ToList();
-            StreakMission = new DailyMissionsStreakMission(Missions, _dailyMissionsConfig.StreakMission);
+            var randomMissions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(_dailyMissionsConfig.DailyMissionsCount, new Random());
+            var missionConfigs = _dailyMissionsConfig.AlwaysIncludedMissions.Concat(randomMissions);
+            Missions = missionConfigs.Select(_missionsFactory.Create).ToList();
+        }
+
+        private void OnMissionStateUpdated(MissionBase mission)
+        {
+            MissionStateUpdated?.Invoke(mission);
         }
         
         public void ResetMissions()
@@ -57,9 +64,9 @@ namespace Game.DailyMissions.Service
         {
             foreach (var mission in Missions)
             {
+                mission.StateUpdated -= OnMissionStateUpdated;
                 mission.Dispose();
             }
-            StreakMission.Dispose();
         }
 
         public void Dispose()

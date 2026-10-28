@@ -1,22 +1,28 @@
 using System;
-using System.Collections.Generic;
 using Game.Missions.Base;
 using Game.Missions.Config;
-using Game.Missions.Implementations;
+using VContainer;
 
 namespace Game.Missions
 {
     //Generated with AI Assistance
     public class MissionsFactory
     {
-        private readonly Dictionary<MissionType, Func<MissionConfig, MissionBase>> _factories = new()
+        private readonly IObjectResolver _resolver;
+
+        public MissionsFactory(IObjectResolver resolver)
         {
-            { MissionType.Manual, config => new ManualMission(config) },
-        };
+            _resolver = resolver;
+        }
+        
+        public static void RegisterFactory(IContainerBuilder builder, MissionType type, Func<IObjectResolver, MissionConfig, MissionBase> factory)
+        {
+            builder.RegisterFactory<MissionConfig, MissionBase>(resolver => config => factory(resolver, config), Lifetime.Singleton).Keyed(type);
+        }
 
         public MissionBase Create(MissionConfig config)
         {
-            if (!_factories.TryGetValue(config.Type, out var factory))
+            if (!_resolver.TryResolve<Func<MissionConfig, MissionBase>>(out var factory, config.Type))
             {
                 throw new ArgumentOutOfRangeException($"No factory registered for mission type {config.Type}");
             }
