@@ -1,4 +1,6 @@
-﻿namespace Game.Missions.Typed
+﻿using Game.Missions.Config;
+
+namespace Game.Missions.Typed
 {
     public abstract class TypedMissionBase : MissionBase
     {

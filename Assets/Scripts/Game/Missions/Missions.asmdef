@@ -1,6 +1,7 @@
 {
 	"name": "Missions",
 	"references": [
-		"GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+		"GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+		"GUID:4fe7e70f01792f74097ce725d6dfe267"
 	]
 }

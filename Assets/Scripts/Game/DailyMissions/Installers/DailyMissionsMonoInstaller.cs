@@ -1,3 +1,4 @@
+using Core.Installers;
 using Game.DailyMissions.Config;
 using Game.DailyMissions.Controllers;
 using Game.DailyMissions.Service;
@@ -7,16 +8,16 @@ using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
 
-namespace Game.DailyMissions
+namespace Game.DailyMissions.Installers
 {
-    public class DailyMissionsInstaller : MonoBehaviour, IInstaller
+    public class DailyMissionsMonoInstaller : MonoInstaller
     {
         [SerializeField] private DailyMissionsConfig _dailyMissionsConfig;
         [SerializeField] private DailyMissionsPopupView _dailyMissionsPopupView;
         [SerializeField] private Button _openDailyMissionsPopupButton;
         [SerializeField] private DailyMissionsMainScreenView _dailyMissionsMainScreenView;
 
-        public void Install(IContainerBuilder builder)
+        public override void Install(IContainerBuilder builder)
         {
             builder.RegisterInstance(_dailyMissionsConfig);
             builder.RegisterComponent(_dailyMissionsPopupView);

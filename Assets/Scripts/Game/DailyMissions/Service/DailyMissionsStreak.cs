@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Missions;
+using Game.Missions.Config;
 
 namespace Game.DailyMissions.Service
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Missions
+namespace Game.Missions.Config
 {
     [Serializable]
     public class MissionConfig

@@ -1,7 +1,8 @@
 ﻿using System;
+using Game.Missions.Typed;
 using UnityEngine;
 
-namespace Game.Missions.Typed
+namespace Game.Missions.Config
 {
     [Serializable]
     public class TypedMissionConfig : MissionConfig
