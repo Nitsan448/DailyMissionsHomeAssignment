@@ -11,7 +11,7 @@ namespace Game.Missions.Installers
         public override void Install(IContainerBuilder builder)
         {
             builder.Register<MissionsFactory>(Lifetime.Singleton);
-            MissionsFactory.RegisterFactory(builder, MissionType.Manual, (_, config) => new ManualMission(config));
+            builder.Register<ManualMissionFactory>(Lifetime.Singleton).As<IMissionFactory>();
         }
     }
 }

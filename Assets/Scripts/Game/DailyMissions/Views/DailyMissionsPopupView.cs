@@ -13,11 +13,13 @@ namespace Game.DailyMissions.Views
         [SerializeField] private DailyMissionViewSlot _missionViewSlot;
         [SerializeField] private DailyMissionViewSlot _streakMissionViewSlot;
         [SerializeField] private Button _closePopupButton;
+        [SerializeField] private ScrollRect _missionsScrollRect;
         private readonly List<DailyMissionView> _missionViews = new();
 
         private void OnEnable()
         {
             _closePopupButton.onClick.AddListener(OnClosePopupButtonPressed);
+            _missionsScrollRect.verticalNormalizedPosition = 1;
         }
 
         private void OnClosePopupButtonPressed()

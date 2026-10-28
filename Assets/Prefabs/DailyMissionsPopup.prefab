@@ -421,6 +421,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 4326688493516225828, guid: 484c7c17aa824ca4284f5ea69f42eac8, type: 3}
     <Container>k__BackingField: {fileID: 2258656574477535900}
   _closePopupButton: {fileID: 1636885663957748533}
+  _missionsScrollRect: {fileID: 5605645672056033807}
 --- !u!1 &1494871719615111352
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +808,7 @@ GameObject:
   - component: {fileID: 5565169257681557362}
   - component: {fileID: 5605645672056033807}
   m_Layer: 0
-  m_Name: MissionsScroll
+  m_Name: RandomMissionsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -848,7 +849,7 @@ MonoBehaviour:
   m_Content: {fileID: 5391354353228498832}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

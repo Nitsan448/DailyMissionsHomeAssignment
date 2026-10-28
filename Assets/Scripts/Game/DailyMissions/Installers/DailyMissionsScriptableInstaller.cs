@@ -18,8 +18,7 @@ namespace Game.DailyMissions.Installers
         {
             builder.RegisterInstance(_dailyMissionsConfig);
             builder.RegisterEntryPoint<DailyMissionsService>();
-            MissionsFactory.RegisterFactory(builder, MissionType.DailyMissionsStreak,
-                (resolver, config) => new DailyMissionsStreakMission(config, resolver.Resolve<IDailyMissionsService>()));
+            builder.Register<DailyMissionsStreakMissionFactory>(Lifetime.Singleton).As<IMissionFactory>();
         }
     }
 }
