@@ -110,3 +110,6 @@ InitTestScene*.unity*
 
 # Headless test-run output
 /[Tt]est[Rr]esults/
+
+# Unity Pipeline package local Editor config
+/[Pp]roject[Ss]ettings/Packages/com.unity.pipeline/EditorPipelineConfig.json

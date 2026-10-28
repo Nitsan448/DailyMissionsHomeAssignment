@@ -1,0 +1,1 @@
+{ "name": "MainMenu.DailyMissions", "rootNamespace": "", "references": [ "DailyMissions", "Missions", "Missions.UI", "Core", "VContainer", "Unity.TextMeshPro" ], "autoReferenced": true }
