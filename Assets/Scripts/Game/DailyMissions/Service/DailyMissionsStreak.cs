@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Game.Missions;
 
-namespace Game.Missions.Types
+namespace Game.DailyMissions.Service
 {
-    public class DailyMissionsStreakMission : MissionBase, IDisposable
+    public class DailyMissionsStreak : MissionBase
     {
-        public override MissionType MissionType => MissionType.DailyMissionsStreak;
-        
         private readonly IReadOnlyList<MissionBase> _missions;
         private int _collectedMissionsCount = 0;
-        
-        public DailyMissionsStreakMission(IReadOnlyList<MissionBase> missions, MissionConfig config) : base(config)
+
+        public DailyMissionsStreak(IReadOnlyList<MissionBase> missions, MissionConfig config) : base(config)
         {
             _missions = missions;
             foreach (var mission in _missions)
@@ -19,9 +17,9 @@ namespace Game.Missions.Types
             }
         }
 
-        private void OnMissionStateUpdated(MissionBase missionBase)
+        private void OnMissionStateUpdated(MissionBase mission)
         {
-            if (missionBase.State == EMissionState.Collected)
+            if (mission.State == EMissionState.Collected)
             {
                 _collectedMissionsCount++;
                 if (_collectedMissionsCount == _missions.Count)
@@ -31,7 +29,7 @@ namespace Game.Missions.Types
             }
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             foreach (var mission in _missions)
             {

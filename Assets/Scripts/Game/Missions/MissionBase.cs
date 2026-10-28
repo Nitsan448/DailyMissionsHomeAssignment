@@ -1,17 +1,14 @@
 ﻿using System;
-using Game.Missions.Types;
 using UnityEngine;
 
 namespace Game.Missions
 {
-    public abstract class MissionBase
+    public abstract class MissionBase : IDisposable
     {
         public event Action<MissionBase> StateUpdated;
         
         public MissionConfig Config { get; private set; }
         public EMissionState State { get; private set; } = EMissionState.InProgress;
-        
-        public abstract MissionType MissionType { get; }
 
         protected MissionBase(MissionConfig config)
         {
@@ -27,6 +24,10 @@ namespace Game.Missions
             }
             
             UpdateState(EMissionState.Collected);
+        }
+
+        public virtual void Dispose()
+        {
         }
 
         protected void UpdateState(EMissionState newState)

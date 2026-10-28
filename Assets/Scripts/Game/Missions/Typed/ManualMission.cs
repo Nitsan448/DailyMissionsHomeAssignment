@@ -1,9 +1,8 @@
-﻿namespace Game.Missions.Types
+﻿namespace Game.Missions.Typed
 {
-    public class ManualMission : MissionBase
+    public class ManualMission : TypedMissionBase
     {
-        public override MissionType MissionType => MissionType.Manual;
-        public ManualMission(MissionConfig config) : base(config)
+        public ManualMission(TypedMissionConfig config) : base(config)
         {
             
         }

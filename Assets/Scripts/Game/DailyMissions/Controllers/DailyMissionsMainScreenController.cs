@@ -1,13 +1,12 @@
 ﻿using System;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
-using Game.Missions.Types;
+using Game.Missions.Typed;
 using JetBrains.Annotations;
 using VContainer.Unity;
 
 namespace Game.DailyMissions.Controllers
 {
-    //Generated with AI assistance
     [UsedImplicitly]
     public class DailyMissionsMainScreenController : IInitializable, IDisposable
     {

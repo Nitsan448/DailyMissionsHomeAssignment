@@ -4,7 +4,7 @@ using System.Linq;
 using Core.Extensions;
 using Game.DailyMissions.Config;
 using Game.Missions;
-using Game.Missions.Types;
+using Game.Missions.Typed;
 using JetBrains.Annotations;
 using VContainer.Unity;
 using Random = System.Random;
@@ -15,8 +15,8 @@ namespace Game.DailyMissions.Service
     public class DailyMissionsService : IDailyMissionsService, IInitializable, IDisposable
     {
         public event Action MissionsReset;
-        public DailyMissionsStreakMission StreakMission { get; private set; }
-        public IReadOnlyList<MissionBase> Missions { get; private set; } = Array.Empty<MissionBase>();
+        public MissionBase Streak { get; private set; }
+        public IReadOnlyList<TypedMissionBase> Missions { get; private set; } = Array.Empty<TypedMissionBase>();
         
         private readonly DailyMissionsConfig _dailyMissionsConfig;
 
@@ -40,7 +40,7 @@ namespace Game.DailyMissions.Service
             Missions = _dailyMissionsConfig.Missions.GetRandomUniqueElements(_dailyMissionsConfig.DailyMissionsCount, new Random())
                 .Select(config => new ManualMission(config))
                 .ToList();
-            StreakMission = new DailyMissionsStreakMission(Missions, _dailyMissionsConfig.StreakMission);
+            Streak = new DailyMissionsStreak(Missions, _dailyMissionsConfig.StreakMission);
         }
         
         public void ResetMissions()
@@ -52,7 +52,11 @@ namespace Game.DailyMissions.Service
         
         private void DisposeMissions()
         {
-            StreakMission.Dispose();
+            foreach (var mission in Missions)
+            {
+                mission.Dispose();
+            }
+            Streak.Dispose();
         }
 
         public void Dispose()

@@ -30,7 +30,7 @@ namespace Game.DailyMissions.Controllers
 
         private void OnMissionStateUpdated(MissionBase mission)
         {
-            _view.DressState(mission.State);
+            _view.UpdateState(mission.State);
         }
 
         private void OnViewClicked()

@@ -4,7 +4,6 @@ using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
 using Game.Missions;
 using JetBrains.Annotations;
-using UnityEngine.UI;
 using VContainer.Unity;
 
 namespace Game.DailyMissions.Controllers
@@ -47,14 +46,16 @@ namespace Game.DailyMissions.Controllers
         {
             foreach (var mission in _dailyMissionsService.Missions)
             {
-                CreateMissionController(mission);
+                var missionView = _popupView.CreateMissionView();
+                CreateMissionController(mission, missionView);
             }
-            CreateMissionController(_dailyMissionsService.StreakMission);
+
+            var streakView = _popupView.CreateStreakView();
+            CreateMissionController(_dailyMissionsService.Streak, streakView);
         }
 
-        private void CreateMissionController(MissionBase mission)
+        private void CreateMissionController(MissionBase mission, DailyMissionView missionView)
         {
-            var missionView = _popupView.CreateMissionView(mission.MissionType);
             var dailyMissionController = new DailyMissionController(missionView, mission);
             _dailyMissionControllers.Add(dailyMissionController);
             dailyMissionController.Initialize();

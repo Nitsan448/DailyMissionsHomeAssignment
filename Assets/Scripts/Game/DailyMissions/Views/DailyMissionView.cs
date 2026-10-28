@@ -33,10 +33,10 @@ namespace Game.DailyMissions.Views
         {
             _descriptionText.text = dressCode.Description;
             _coinRewardAmountText.text = dressCode.CoinRewardAmount.ToString();
-            DressState(dressCode.State);
+            UpdateState(dressCode.State);
         }
 
-        public void DressState(EMissionState state)
+        public void UpdateState(EMissionState state)
         {
             var stateConfig = _statesConfig.StateConfigs[state];
             _descriptionText.color = stateConfig.TextColor;

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Game.Missions.Types;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +24,18 @@ namespace Game.DailyMissions.Views
             ClosePopupButtonPressed?.Invoke();
         }
 
-        public DailyMissionView CreateMissionView(MissionType missionType)
+        public DailyMissionView CreateMissionView()
         {
-            var slot = missionType is MissionType.DailyMissionsStreak ? _streakMissionViewSlot : _missionViewSlot;
+            return CreateMissionView(_missionViewSlot);
+        }
+
+        public DailyMissionView CreateStreakView()
+        {
+            return CreateMissionView(_streakMissionViewSlot);
+        }
+
+        private DailyMissionView CreateMissionView(DailyMissionViewSlot slot)
+        {
             var missionView = Instantiate(slot.Prefab, slot.Container);
             _missionViews.Add(missionView);
             return missionView;
