@@ -11,14 +11,14 @@ src="https://github.com/user-attachments/assets/59b98b8f-f4da-4729-b0e6-edd9b41c
 
 ## General notes
 
-Most of the code is structured using the MVC pattern.
+Most of the code is structured using the MVC pattern, with VContainer for dependency injection.
 
 I created the missions system to be extensible and dynamic.
-For now it only contains two missions (the manually completed mission, and the streak mission).
+For now it only contains two missions (the manually completed mission, and the streak mission),
 But creating new missions should be simple and straightforward.
 
 It should also be fairly simple to extend this system to support defining the missions pool using a JSON config file,
-And making it more generic (for example in a "merge 10 times" mission, the 10 would be a value in the config and not
+and making it more generic (for example in a "merge 10 times" mission, the 10 would be a value in the config and not
 hardcoded).
 
 In a real project I would likely also create a popup system, so that the daily missions popup
