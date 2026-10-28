@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 779042498}
   - component: {fileID: 779042497}
   - component: {fileID: 779042499}
+  - component: {fileID: 779042500}
   m_Layer: 0
   m_Name: GameLifetimeScope
   m_TagString: Untagged
@@ -654,6 +655,18 @@ MonoBehaviour:
   _dailyMissionsPopupView: {fileID: 7557882306982683861}
   _openDailyMissionsPopupButton: {fileID: 59863925}
   _dailyMissionsMainScreenView: {fileID: 115791129}
+--- !u!114 &779042500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779042496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5cc9f538712c049a4aef59551f5bad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Missions::Game.Missions.MissionsInstaller
 --- !u!1 &1120228656
 GameObject:
   m_ObjectHideFlags: 0
