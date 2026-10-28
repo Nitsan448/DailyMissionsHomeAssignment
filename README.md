@@ -1,9 +1,14 @@
 # How to run
 
+Open Unity and set the aspect ratio to a common phone aspect ratio.
+
+<img width="661" height="632" alt="image" src="https://github.com/user-attachments/assets/a874cdbe-655e-4f06-b09a-8871db767282" />
+
+___
+
 Open the MainMenu scene located at Assets/Game/Domains/MainMenu/Scenes and press Play.
 
-Open the missions popup by clicking the missions icon (similar to the real game).
-
+Open the missions popup by clicking the missions icon (similar to the real game).<br>
 Reset or complete missions through the debug buttons at the left side of the screen.
 
 <img width="281" height="546" alt="image"
