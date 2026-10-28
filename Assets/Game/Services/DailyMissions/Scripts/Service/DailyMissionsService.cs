@@ -32,6 +32,13 @@ namespace Game.Services.DailyMissions.Scripts.Service
         {
             InitializeMissions();
         }
+        
+        public void ResetMissions()
+        {
+            DisposeMissions();
+            InitializeMissions();
+            MissionsReset?.Invoke();
+        }
 
         private void InitializeMissions()
         {
@@ -52,13 +59,6 @@ namespace Game.Services.DailyMissions.Scripts.Service
         private void OnMissionStateUpdated(MissionBase mission)
         {
             MissionStateUpdated?.Invoke(mission);
-        }
-        
-        public void ResetMissions()
-        {
-            DisposeMissions();
-            InitializeMissions();
-            MissionsReset?.Invoke();
         }
         
         private void DisposeMissions()

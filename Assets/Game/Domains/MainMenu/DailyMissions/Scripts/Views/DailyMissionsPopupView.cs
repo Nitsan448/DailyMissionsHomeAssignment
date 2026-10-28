@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Game.Services.Missions;
 using Game.Services.Missions.Scripts;
 using Game.UI.Missions.Scripts.Views;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Domains.MainMenu.DailyMissions.Views
+namespace Game.Domains.MainMenu.DailyMissions.Scripts.Views
 {
     public class DailyMissionsPopupView : MonoBehaviour
     {
@@ -23,12 +22,7 @@ namespace Game.Domains.MainMenu.DailyMissions.Views
             _closePopupButton.onClick.AddListener(OnClosePopupButtonPressed);
             _missionsScrollRect.verticalNormalizedPosition = 1;
         }
-
-        private void OnClosePopupButtonPressed()
-        {
-            ClosePopupButtonPressed?.Invoke();
-        }
-
+        
         public MissionView CreateMissionView(MissionType type)
         {
             var slot = type == MissionType.DailyMissionsStreak ? _streakMissionViewSlot : _missionViewSlot;
@@ -46,6 +40,11 @@ namespace Game.Domains.MainMenu.DailyMissions.Views
             _missionViews.Clear();
         }
 
+        private void OnClosePopupButtonPressed()
+        {
+            ClosePopupButtonPressed?.Invoke();
+        }
+        
         private void OnDisable()
         {
             _closePopupButton.onClick.RemoveListener(OnClosePopupButtonPressed);

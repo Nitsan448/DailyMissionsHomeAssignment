@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Domains.MainMenu.DailyMissions.Views
+namespace Game.Domains.MainMenu.DailyMissions.Scripts.Views
 {
     public class DailyMissionsMainScreenView : MonoBehaviour
     {

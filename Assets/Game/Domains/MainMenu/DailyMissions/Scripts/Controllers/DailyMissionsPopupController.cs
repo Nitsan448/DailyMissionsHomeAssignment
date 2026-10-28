@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Domains.MainMenu.DailyMissions.Views;
+using Game.Domains.MainMenu.DailyMissions.Scripts.Views;
 using Game.Services.DailyMissions.Scripts.Service;
 using Game.UI.Missions.Scripts.Controllers;
 using JetBrains.Annotations;
 using VContainer.Unity;
 
-namespace Game.Domains.MainMenu.DailyMissions.Controllers
+namespace Game.Domains.MainMenu.DailyMissions.Scripts.Controllers
 {
     [UsedImplicitly]
     public class DailyMissionsPopupController : IStartable, IDisposable

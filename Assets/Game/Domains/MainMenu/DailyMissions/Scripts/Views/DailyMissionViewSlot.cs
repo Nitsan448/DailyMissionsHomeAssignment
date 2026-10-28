@@ -2,7 +2,7 @@ using System;
 using Game.UI.Missions.Scripts.Views;
 using UnityEngine;
 
-namespace Game.Domains.MainMenu.DailyMissions.Views
+namespace Game.Domains.MainMenu.DailyMissions.Scripts.Views
 {
     [Serializable]
     public class DailyMissionViewSlot

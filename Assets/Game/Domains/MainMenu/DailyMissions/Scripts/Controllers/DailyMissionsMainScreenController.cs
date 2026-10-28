@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Domains.MainMenu.DailyMissions.Views;
+using Game.Domains.MainMenu.DailyMissions.Scripts.Views;
 using Game.Services.DailyMissions.Scripts.Service;
 using Game.Services.Missions.Scripts.Implementations;
 using JetBrains.Annotations;
 using VContainer.Unity;
 
-namespace Game.Domains.MainMenu.DailyMissions.Controllers
+namespace Game.Domains.MainMenu.DailyMissions.Scripts.Controllers
 {
     [UsedImplicitly]
     public class DailyMissionsMainScreenController : IStartable, IDisposable
