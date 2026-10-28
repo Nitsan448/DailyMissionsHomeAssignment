@@ -6,7 +6,9 @@ using Game.Services.DailyMissions.Scripts.Config;
 using Game.Services.Missions;
 using Game.Services.Missions.Scripts;
 using Game.Services.Missions.Scripts.Base;
+using Game.Services.Missions.Scripts.Config;
 using JetBrains.Annotations;
+using UnityEngine;
 using VContainer.Unity;
 using Random = System.Random;
 
@@ -51,11 +53,28 @@ namespace Game.Services.DailyMissions.Scripts.Service
 
         private void CreateMissions()
         {
-            var randomMissions = _dailyMissionsConfig.MissionsPool.GetRandomUniqueElements(_dailyMissionsConfig.RandomizedDailyMissionsCount, new Random());
-            var missionConfigs = _dailyMissionsConfig.AlwaysIncludedMissions.Concat(randomMissions);
+            var validMissionsPool = GetValidMissions(_dailyMissionsConfig.MissionsPool);
+            var randomMissions = validMissionsPool.GetRandomUniqueElements(_dailyMissionsConfig.RandomizedDailyMissionsCount, new Random());
+            var validAlwaysIncludedMissions = GetValidMissions(_dailyMissionsConfig.AlwaysIncludedMissions);
+            var missionConfigs = validAlwaysIncludedMissions.Concat(randomMissions);
             Missions = missionConfigs.Select(_missionsFactory.Create).ToList();
         }
 
+        private List<MissionConfig> GetValidMissions(IEnumerable<MissionConfig> missionConfigs)
+        {
+            var validMissions = new List<MissionConfig>();
+            foreach (var missionConfig in missionConfigs)
+            {
+                if (!_missionsFactory.HasFactory(missionConfig.Type))
+                {
+                    Debug.LogError($"Skipping mission '{missionConfig.Id}': no factory registered for mission type {missionConfig.Type}");
+                    continue;
+                }
+                validMissions.Add(missionConfig);
+            }
+            return validMissions;
+        }
+        
         private void OnMissionStateUpdated(MissionBase mission)
         {
             MissionStateUpdated?.Invoke(mission);

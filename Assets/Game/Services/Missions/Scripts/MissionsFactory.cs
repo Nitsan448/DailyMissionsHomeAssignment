@@ -16,6 +16,11 @@ namespace Game.Services.Missions.Scripts
             _factories = factories.ToDictionary(factory => factory.Type);
         }
 
+        public bool HasFactory(MissionType type)
+        {
+            return _factories.ContainsKey(type);
+        }
+
         public MissionBase Create(MissionConfig config)
         {
             if (!_factories.TryGetValue(config.Type, out var factory))
