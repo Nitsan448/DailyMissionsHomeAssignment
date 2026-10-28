@@ -5,7 +5,6 @@ using Game.DailyMissions.Views;
 using Game.Missions;
 using JetBrains.Annotations;
 using UnityEngine.UI;
-using VContainer;
 using VContainer.Unity;
 
 namespace Game.DailyMissions.Controllers
@@ -15,22 +14,22 @@ namespace Game.DailyMissions.Controllers
     {
         private readonly IDailyMissionsService _dailyMissionsService;
         private readonly DailyMissionsPopupView _popupView;
-        private readonly Button _openDailyMissionsPopupButton;
+        private readonly DailyMissionsMainScreenView _dailyMissionsMainScreenView;
         private readonly List<DailyMissionController> _dailyMissionControllers = new();
 
         public DailyMissionsPopupController(
             IDailyMissionsService dailyMissionsService,
             DailyMissionsPopupView popupView,
-            [Key(Ids.Buttons.OPEN_DAILY_MISSIONS_POPUP)] Button openDailyMissionsPopupButton)
+            DailyMissionsMainScreenView dailyMissionsMainScreenView)
         {
             _dailyMissionsService = dailyMissionsService;
             _popupView = popupView;
-            _openDailyMissionsPopupButton = openDailyMissionsPopupButton;
+            _dailyMissionsMainScreenView = dailyMissionsMainScreenView;
         }
 
         public void Initialize()
         {
-            _openDailyMissionsPopupButton.onClick.AddListener(OnOpenPopupButtonPressed);
+            _dailyMissionsMainScreenView.OpenPopupButtonPressed += OnOpenPopupButtonPressed;
             _popupView.ClosePopupButtonPressed += OnClosePopupButtonPressed;
             _dailyMissionsService.MissionsReset += OnMissionsReset;
         }
@@ -83,7 +82,7 @@ namespace Game.DailyMissions.Controllers
 
         public void Dispose()
         {
-            _openDailyMissionsPopupButton.onClick.RemoveListener(OnOpenPopupButtonPressed);
+            _dailyMissionsMainScreenView.OpenPopupButtonPressed -= OnOpenPopupButtonPressed;
             _popupView.ClosePopupButtonPressed -= OnClosePopupButtonPressed;
             _dailyMissionsService.MissionsReset -= OnMissionsReset;
             DisposeMissionControllers();

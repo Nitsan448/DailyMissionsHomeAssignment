@@ -15,7 +15,6 @@ namespace Game.DailyMissions.Service
     public class DailyMissionsService : IDailyMissionsService, IInitializable, IDisposable
     {
         public event Action MissionsReset;
-        public event Action<MissionBase> MissionStateUpdated;
         public DailyMissionsStreakMission StreakMission { get; private set; }
         public IReadOnlyList<MissionBase> Missions { get; private set; } = Array.Empty<MissionBase>();
         
@@ -34,10 +33,6 @@ namespace Game.DailyMissions.Service
         private void InitializeMissions()
         {
             CreateMissions();
-            foreach (var mission in Missions)
-            {
-                mission.StateUpdated += OnMissionStateUpdated;
-            }
         }
 
         private void CreateMissions()
@@ -46,11 +41,6 @@ namespace Game.DailyMissions.Service
                 .Select(config => new ManualMission(config))
                 .ToList();
             StreakMission = new DailyMissionsStreakMission(Missions, _dailyMissionsConfig.StreakMission);
-        }
-
-        private void OnMissionStateUpdated(MissionBase mission)
-        {
-            MissionStateUpdated?.Invoke(mission);
         }
         
         public void ResetMissions()
@@ -62,10 +52,6 @@ namespace Game.DailyMissions.Service
         
         private void DisposeMissions()
         {
-            foreach (var mission in Missions)
-            {
-                mission.StateUpdated -= OnMissionStateUpdated;
-            }
             StreakMission.Dispose();
         }
 

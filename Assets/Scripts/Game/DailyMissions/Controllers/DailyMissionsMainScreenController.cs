@@ -22,18 +22,18 @@ namespace Game.DailyMissions.Controllers
 
         public void Initialize()
         {
-            _mainScreenView.ResetMissionsButtonClicked += OnResetMissionsButtonClicked;
-            _mainScreenView.CompleteMissionButtonClicked += OnCompleteMissionButtonClicked;
+            _mainScreenView.ResetMissionsButtonPressed += OnResetMissionsButtonPressed;
+            _mainScreenView.CompleteMissionButtonPressed += OnCompleteMissionButtonPressed;
             _dailyMissionsService.MissionsReset += OnMissionsReset;
             InitializeCompleteMissionButtons();
         }
 
-        private void OnResetMissionsButtonClicked()
+        private void OnResetMissionsButtonPressed()
         {
             _dailyMissionsService.ResetMissions();
         }
 
-        private void OnCompleteMissionButtonClicked(int missionIndex)
+        private void OnCompleteMissionButtonPressed(int missionIndex)
         {
             if (_dailyMissionsService.Missions[missionIndex] is ManualMission manualMission)
             {
@@ -54,8 +54,8 @@ namespace Game.DailyMissions.Controllers
         public void Dispose()
         {
             _dailyMissionsService.MissionsReset -= OnMissionsReset;
-            _mainScreenView.CompleteMissionButtonClicked -= OnCompleteMissionButtonClicked;
-            _mainScreenView.ResetMissionsButtonClicked -= OnResetMissionsButtonClicked;
+            _mainScreenView.CompleteMissionButtonPressed -= OnCompleteMissionButtonPressed;
+            _mainScreenView.ResetMissionsButtonPressed -= OnResetMissionsButtonPressed;
         }
     }
 }

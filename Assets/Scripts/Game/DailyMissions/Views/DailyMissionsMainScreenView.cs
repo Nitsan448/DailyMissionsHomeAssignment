@@ -8,11 +8,13 @@ namespace Game.DailyMissions.Views
 {
     public class DailyMissionsMainScreenView : MonoBehaviour
     {
-        public event Action ResetMissionsButtonClicked;
-        public event Action<int> CompleteMissionButtonClicked;
+        public event Action OpenPopupButtonPressed;
+        public event Action ResetMissionsButtonPressed;
+        public event Action<int> CompleteMissionButtonPressed;
 
         [SerializeField] private Button _resetMissionsButton;
         [SerializeField] private Button _completeMissionButtonPrefab;
+        [SerializeField] private Button _openDailyMissionsPopupButton;
         [SerializeField] private Transform _completeMissionButtonsContainer;
 
         private readonly List<Button> _completeMissionButtons = new();
@@ -20,6 +22,7 @@ namespace Game.DailyMissions.Views
         private void OnEnable()
         {
             _resetMissionsButton.onClick.AddListener(OnResetMissionsButtonClicked);
+            _openDailyMissionsPopupButton.onClick.AddListener(OnOpenDailyMissionsPopupButtonClicked);
         }
 
         public void InitializeCompleteMissionButtons(int missionsCount)
@@ -33,14 +36,19 @@ namespace Game.DailyMissions.Views
 
         private void OnResetMissionsButtonClicked()
         {
-            ResetMissionsButtonClicked?.Invoke();
+            ResetMissionsButtonPressed?.Invoke();
+        }
+
+        private void OnOpenDailyMissionsPopupButtonClicked()
+        {
+            OpenPopupButtonPressed?.Invoke();
         }
 
         private void CreateCompleteMissionButton(int missionIndex)
         {
             var button = Instantiate(_completeMissionButtonPrefab, _completeMissionButtonsContainer);
             button.GetComponentInChildren<TextMeshProUGUI>().text = $"Complete Task {missionIndex + 1}";
-            button.onClick.AddListener(() => CompleteMissionButtonClicked?.Invoke(missionIndex));
+            button.onClick.AddListener(() => CompleteMissionButtonPressed?.Invoke(missionIndex));
             _completeMissionButtons.Add(button);
         }
 
@@ -56,6 +64,7 @@ namespace Game.DailyMissions.Views
         private void OnDisable()
         {
             _resetMissionsButton.onClick.RemoveListener(OnResetMissionsButtonClicked);
+            _openDailyMissionsPopupButton.onClick.RemoveListener(OnOpenDailyMissionsPopupButtonClicked);
         }
     }
 }

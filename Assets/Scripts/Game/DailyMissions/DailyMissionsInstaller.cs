@@ -20,7 +20,6 @@ namespace Game.DailyMissions
         {
             builder.RegisterInstance(_dailyMissionsConfig);
             builder.RegisterComponent(_dailyMissionsPopupView);
-            builder.RegisterComponent(_openDailyMissionsPopupButton).Keyed(Ids.Buttons.OPEN_DAILY_MISSIONS_POPUP);
             builder.RegisterComponent(_dailyMissionsMainScreenView);
             builder.RegisterEntryPoint<DailyMissionsService>();
             builder.RegisterEntryPoint<DailyMissionsPopupController>();
