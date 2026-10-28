@@ -1,12 +1,13 @@
-using Game.Services.Missions.Scripts.Base;
 using Game.Services.Missions.Scripts.Config;
+using Game.Services.Missions.Scripts.Enums;
+using Game.Services.Missions.Scripts.Factory;
 
 namespace Game.Services.Missions.Scripts.Implementations
 {
     //Generated with AI Assistance
     public class ManualMissionFactory : IMissionFactory
     {
-        public MissionType Type => MissionType.Manual;
+        public EMissionType Type => EMissionType.Manual;
 
         public MissionBase Create(MissionConfig config)
         {

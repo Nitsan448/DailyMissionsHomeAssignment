@@ -1,22 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Services.Missions.Scripts.Base;
 using Game.Services.Missions.Scripts.Config;
+using Game.Services.Missions.Scripts.Enums;
 
-namespace Game.Services.Missions.Scripts
+namespace Game.Services.Missions.Scripts.Factory
 {
     //Generated with AI Assistance
     public class MissionsFactory
     {
-        private readonly Dictionary<MissionType, IMissionFactory> _factories;
+        private readonly Dictionary<EMissionType, IMissionFactory> _factories;
 
         public MissionsFactory(IReadOnlyList<IMissionFactory> factories)
         {
             _factories = factories.ToDictionary(factory => factory.Type);
         }
 
-        public bool HasFactory(MissionType type)
+        public bool HasFactory(EMissionType type)
         {
             return _factories.ContainsKey(type);
         }

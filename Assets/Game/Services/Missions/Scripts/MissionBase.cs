@@ -1,8 +1,9 @@
 ﻿using System;
 using Game.Services.Missions.Scripts.Config;
+using Game.Services.Missions.Scripts.Enums;
 using UnityEngine;
 
-namespace Game.Services.Missions.Scripts.Base
+namespace Game.Services.Missions.Scripts
 {
     public abstract class MissionBase : IDisposable
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Services.Missions.Scripts;
+using Game.Services.Missions.Scripts.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

@@ -1,5 +1,6 @@
 using System;
 using Game.Services.Missions.Scripts;
+using Game.Services.Missions.Scripts.Enums;
 using Game.UI.Missions.Scripts.Config;
 using TMPro;
 using UnityEngine;

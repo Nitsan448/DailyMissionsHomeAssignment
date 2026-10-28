@@ -4,6 +4,7 @@ using Game.Services.DailyMissions.Scripts.MissionImplementations;
 using Game.Services.DailyMissions.Scripts.Service;
 using Game.Services.Missions;
 using Game.Services.Missions.Scripts;
+using Game.Services.Missions.Scripts.Factory;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

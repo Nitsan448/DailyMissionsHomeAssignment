@@ -1,5 +1,5 @@
-﻿using Game.Services.Missions.Scripts.Base;
-using Game.Services.Missions.Scripts.Config;
+﻿using Game.Services.Missions.Scripts.Config;
+using Game.Services.Missions.Scripts.Enums;
 
 namespace Game.Services.Missions.Scripts.Implementations
 {

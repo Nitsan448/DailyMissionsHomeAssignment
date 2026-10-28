@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Services.Missions.Scripts.Base;
+using Game.Services.Missions.Scripts;
 
 namespace Game.Services.DailyMissions.Scripts.Service
 {

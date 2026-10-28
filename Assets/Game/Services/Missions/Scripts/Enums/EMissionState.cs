@@ -1,4 +1,4 @@
-﻿namespace Game.Services.Missions.Scripts
+﻿namespace Game.Services.Missions.Scripts.Enums
 {
     public enum EMissionState
     {

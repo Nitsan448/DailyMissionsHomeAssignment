@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Game.Services.Missions.Scripts;
+using Game.Services.Missions.Scripts.Enums;
 using Game.UI.Missions.Scripts.Views;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,9 +24,9 @@ namespace Game.Domains.MainMenu.DailyMissions.Scripts.Views
             _missionsScrollRect.verticalNormalizedPosition = 1;
         }
         
-        public MissionView CreateMissionView(MissionType type)
+        public MissionView CreateMissionView(EMissionType type)
         {
-            var slot = type == MissionType.DailyMissionsStreak ? _streakMissionViewSlot : _missionViewSlot;
+            var slot = type == EMissionType.DailyMissionsStreak ? _streakMissionViewSlot : _missionViewSlot;
             var missionView = Instantiate(slot.Prefab, slot.Container);
             _missionViews.Add(missionView);
             return missionView;

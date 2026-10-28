@@ -1,4 +1,5 @@
 ﻿using Game.Services.Missions.Scripts;
+using Game.Services.Missions.Scripts.Enums;
 
 namespace Game.UI.Missions.Scripts.Views
 {

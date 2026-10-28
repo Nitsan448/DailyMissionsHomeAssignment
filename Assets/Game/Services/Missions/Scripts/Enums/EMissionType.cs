@@ -1,6 +1,6 @@
-﻿namespace Game.Services.Missions.Scripts
+﻿namespace Game.Services.Missions.Scripts.Enums
 {
-    public enum MissionType
+    public enum EMissionType
     {
         None = 0,
         Manual = 1,

@@ -2,8 +2,8 @@
 using Game.Services.DailyMissions.Scripts.Service;
 using Game.Services.Missions;
 using Game.Services.Missions.Scripts;
-using Game.Services.Missions.Scripts.Base;
 using Game.Services.Missions.Scripts.Config;
+using Game.Services.Missions.Scripts.Enums;
 
 namespace Game.Services.DailyMissions.Scripts.MissionImplementations
 {

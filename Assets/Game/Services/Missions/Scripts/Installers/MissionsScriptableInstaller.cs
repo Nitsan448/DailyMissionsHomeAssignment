@@ -1,4 +1,5 @@
 using Core.Installers;
+using Game.Services.Missions.Scripts.Factory;
 using Game.Services.Missions.Scripts.Implementations;
 using UnityEngine;
 using VContainer;
