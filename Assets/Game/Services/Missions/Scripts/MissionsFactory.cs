@@ -20,7 +20,7 @@ namespace Game.Services.Missions.Scripts
         {
             if (!_factories.TryGetValue(config.Type, out var factory))
             {
-                throw new ArgumentOutOfRangeException($"No factory registered for mission type {config.Type}");
+                throw new ArgumentOutOfRangeException(nameof(config), config.Type, $"No factory registered for mission type {config.Type}");
             }
             return factory.Create(config);
         }
