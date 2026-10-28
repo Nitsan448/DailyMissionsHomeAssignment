@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Missions;
-using Game.Missions.Typed;
+using Game.Missions.Base;
 
 namespace Game.DailyMissions.Service
 {
     public interface IDailyMissionsService
     {
         event Action MissionsReset;
-        MissionBase Streak { get; }
-        IReadOnlyList<TypedMissionBase> Missions { get; }
+        MissionBase StreakMission { get; }
+        IReadOnlyList<MissionBase> Missions { get; }
         void ResetMissions();
     }
 }

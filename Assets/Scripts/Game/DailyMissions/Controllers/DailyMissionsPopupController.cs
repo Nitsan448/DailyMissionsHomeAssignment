@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
-using Game.Missions;
+using Game.Missions.Base;
 using JetBrains.Annotations;
 using VContainer.Unity;
 
@@ -51,7 +51,7 @@ namespace Game.DailyMissions.Controllers
             }
 
             var streakView = _popupView.CreateStreakView();
-            CreateMissionController(_dailyMissionsService.Streak, streakView);
+            CreateMissionController(_dailyMissionsService.StreakMission, streakView);
         }
 
         private void CreateMissionController(MissionBase mission, DailyMissionView missionView)

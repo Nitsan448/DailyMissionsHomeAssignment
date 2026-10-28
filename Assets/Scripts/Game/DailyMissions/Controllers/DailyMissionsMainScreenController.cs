@@ -1,7 +1,7 @@
 ﻿using System;
 using Game.DailyMissions.Service;
 using Game.DailyMissions.Views;
-using Game.Missions.Typed;
+using Game.Missions.Implementations;
 using JetBrains.Annotations;
 using VContainer.Unity;
 

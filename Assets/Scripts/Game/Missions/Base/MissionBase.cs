@@ -2,7 +2,7 @@
 using Game.Missions.Config;
 using UnityEngine;
 
-namespace Game.Missions
+namespace Game.Missions.Base
 {
     public abstract class MissionBase : IDisposable
     {

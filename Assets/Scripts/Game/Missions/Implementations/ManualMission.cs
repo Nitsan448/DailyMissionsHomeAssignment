@@ -1,10 +1,11 @@
-﻿using Game.Missions.Config;
+﻿using Game.Missions.Base;
+using Game.Missions.Config;
 
-namespace Game.Missions.Typed
+namespace Game.Missions.Implementations
 {
-    public class ManualMission : TypedMissionBase
+    public class ManualMission : MissionBase
     {
-        public ManualMission(TypedMissionConfig config) : base(config)
+        public ManualMission(MissionConfig config) : base(config)
         {
             
         }

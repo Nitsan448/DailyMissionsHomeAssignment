@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Missions.Config
@@ -9,5 +10,6 @@ namespace Game.Missions.Config
         [field:SerializeField] public string Id { get; private set; }
         [field:SerializeField] public string Description { get; private set; }
         [field:SerializeField] public int CoinRewardAmount { get; private set; }
+        [field:SerializeField] public MissionType Type { get; private set; }
     }
 }

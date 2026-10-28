@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using Game.Missions;
+using Game.Missions.Base;
 using Game.Missions.Config;
 
-namespace Game.DailyMissions.Service
+namespace Game.DailyMissions.MissionImplementations
 {
-    public class DailyMissionsStreak : MissionBase
+    public class DailyMissionsStreakMission : MissionBase
     {
         private readonly IReadOnlyList<MissionBase> _missions;
         private int _collectedMissionsCount = 0;
 
-        public DailyMissionsStreak(IReadOnlyList<MissionBase> missions, MissionConfig config) : base(config)
+        public DailyMissionsStreakMission(IReadOnlyList<MissionBase> missions, MissionConfig config) : base(config)
         {
             _missions = missions;
             foreach (var mission in _missions)

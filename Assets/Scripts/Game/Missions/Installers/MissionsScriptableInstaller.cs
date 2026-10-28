@@ -1,5 +1,4 @@
 using Core.Installers;
-using Game.Missions.Typed;
 using UnityEngine;
 using VContainer;
 
@@ -10,7 +9,7 @@ namespace Game.Missions.Installers
     {
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<TypedMissionsFactory>(Lifetime.Singleton);
+            builder.Register<MissionsFactory>(Lifetime.Singleton);
         }
     }
 }

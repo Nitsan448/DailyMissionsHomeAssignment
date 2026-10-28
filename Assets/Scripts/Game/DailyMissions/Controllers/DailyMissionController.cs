@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.DailyMissions.Views;
 using Game.Missions;
+using Game.Missions.Base;
 
 namespace Game.DailyMissions.Controllers
 {
